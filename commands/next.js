@@ -19,7 +19,7 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   name: "next",
-  alias: "n",
+  alias: ["n"],
   help: "Pula para a próxima música",
   execute,
 };

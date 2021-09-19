@@ -13,7 +13,7 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   name: "stop",
-  alias: "s",
+  alias: ["s"],
   help: "Para a reprodução de músicas no servidor",
   execute,
 };

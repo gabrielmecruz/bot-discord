@@ -61,7 +61,7 @@ const progressBarEnhanced = (current, total, barSize) => {
 
 module.exports = {
     name: "nowplaying",
-    alias: "np",
+    alias: ["np"],
     help: "Indica qual música está tocando e sua minutagem no canal atual do usuário",
     execute,
 };

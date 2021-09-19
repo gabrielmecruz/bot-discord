@@ -128,7 +128,7 @@ const playSong = async (bot, msg, song) => {
 
 module.exports = {
   name: "play",
-  alias: "p",
+  alias: ["p"],
   help: "Reproduz a música desejada no canal atual do usuário",
   execute,
   playSong

@@ -8,7 +8,7 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   name: "resume",
-  alias: "r",
+  alias: ["r"],
   help: "Continua a reprodução de música atual",
   execute,
 };

@@ -38,7 +38,7 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   name: "queue",
-  alias: "q",
+  alias: ["q"],
   help: "Imprime a atual fila de músicas",
   execute,
 };

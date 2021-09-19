@@ -17,7 +17,7 @@ const commandFiles = fs
 for (var filename of commandFiles) {
   const pull = require(`./commands/${filename}`);
   bot.commands.set(pull.name, pull);
-  bot.commands.set(pull.alias, pull);
+  //bot.commands.set(pull.alias, pull);
 }
 
 bot.login(process.env.TOKEN);
@@ -36,12 +36,14 @@ bot.on("message", (msg) => {
   //verifica se a chamada foi realizada com o prefixo / caso não, retorna sem valor
   if (!msg.content.startsWith(process.env.PREFIX) || msg.author.bot) return;
   const args = msg.content.slice(process.env.PREFIX.length).split(" ");
-  const command = args.shift();
+  const commandName = args.shift().toLowerCase();
 
+  const command = bot.commands.get(commandName) || bot.commands.find((command) => command.alias && command.alias.includes(commandName));
 //executa o metodo 'execute' em cada arquivo .js que fez a leitura e realiza o tratamento de exceção
 //caso não seja encontrado o arquivo
   try {
-    bot.commands.get(command).execute(bot, msg, args);
+    //bot.commands.get(command).execute(bot, msg, args);
+    command.execute(bot, msg, args);
   } catch (e) {
     console.error(e);
     return msg.reply("Ops! Eu ainda não conheço esse comando!");
