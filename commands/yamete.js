@@ -6,6 +6,8 @@ const execute = async (bot, msg, args) => {
         return msg.reply("Você precisa estar em um canal de voz para dar a risadinha.");
     }
 
+    console.log()
+
     if (queue) {
         msg.channel.send("A JBL está ocupada.")
             .then(msg => msg.delete({ timeout: 5000 }))
@@ -15,7 +17,8 @@ const execute = async (bot, msg, args) => {
     msg.member.voice.channel.join().then(connection => {
         const dispatcher = connection.play('./yamete.m4a');
         dispatcher.on("finish", () => {
-            msg.member.voice.channel.leave();
+            //msg.member.voice.channel.leave();
+            dispatcher.end();
         });
     })
 };

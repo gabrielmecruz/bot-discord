@@ -3,6 +3,9 @@ const moment = require('moment')
 //const memberCount = require('./member-count')
 
 const execute = (bot, msg, args) => {
+  let member = msg.author;
+  let memberActivies = member.presence.activities;
+
   const embed = new MessageEmbed()
     .setColor("#0099ff")
     .setTitle(
@@ -27,7 +30,8 @@ const execute = (bot, msg, args) => {
       },
       {
         name: "Jogando:",
-        value: msg.author.presence.activities[0] ? msg.author.presence.activities[0].name : "TA JOGAND N",
+        //value: msg.author.presence.activities[0] ? msg.author.presence.activities[0].name : "None",
+        value: memberActivies ? memberActivies.name : "None",
         inline: true,
       },
     ])
@@ -37,6 +41,9 @@ const execute = (bot, msg, args) => {
       `https://cdn.discordapp.com/icons/${msg.guild.id}/${msg.guild.icon}.png`
     );
   msg.channel.send({ embed });
+
+  console.log(memberActivies)
+  //console.log(msg.author)
 };
 
 module.exports = {

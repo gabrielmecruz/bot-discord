@@ -15,7 +15,8 @@ const execute = async (bot, msg, args) => {
     msg.member.voice.channel.join().then(connection => {
         const dispatcher = connection.play('./rimrim.m4a');
         dispatcher.on("finish", () => {
-            msg.member.voice.channel.leave();
+            //msg.member.voice.channel.leave();
+            dispatcher.end();
         });
     })
 };

@@ -1,9 +1,9 @@
 const execute = (bot, msg, args) => {
-  return msg.channel.send("O PAI TA ON PRA CARALHO!");
+  return msg.channel.send("O pai ta on");
 };
 
 module.exports = {
   name: "on",
-  help: "O pai ta on!",
+  help: "Verifica se o pai ta on!",
   execute,
 };

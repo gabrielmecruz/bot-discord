@@ -6,6 +6,7 @@ dotenv.config();
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
+//bot.aliases = new Discord.Collection();
 bot.queues = new Map();
 
 //faz a leitura de todos os arquivos dentro do path './commands' terminado em '.js' 
@@ -14,8 +15,9 @@ const commandFiles = fs
   .filter((filename) => filename.endsWith(".js"));
 
 for (var filename of commandFiles) {
-  const command = require(`./commands/${filename}`);
-  bot.commands.set(command.name, command);
+  const pull = require(`./commands/${filename}`);
+  bot.commands.set(pull.name, pull);
+  bot.commands.set(pull.alias, pull);
 }
 
 bot.login(process.env.TOKEN);
@@ -25,7 +27,7 @@ bot.on("ready", function () {
   console.log(`${bot.user.username} ligada`);
   bot.user.setPresence({
     activity: {
-      name: "a JBL que pisca! _help", type: 2,
+      name: "a JBL que pisca! -help", type: 2,
     }
   })
 });

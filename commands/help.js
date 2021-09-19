@@ -12,6 +12,7 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   name: "help",
+  alias: "h",
   help: "Exibe a ajuda de todos os comandos",
   execute,
 };
