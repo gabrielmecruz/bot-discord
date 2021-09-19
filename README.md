@@ -1,7 +1,7 @@
-# Bot Criado para o Discord com JS
+## Bot Criado para o Discord com JS
 
 
-## Comandos:
+### Comandos:
 
 
 - **help**: Exibe a ajuda de todos os comandos
